@@ -10,5 +10,5 @@ This is a Wechat mini-program for Toastmaster Club, providing the features as fo
 
 ## References
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+- [Cloud Development Document](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
