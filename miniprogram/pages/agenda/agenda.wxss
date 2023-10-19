@@ -1,0 +1,59 @@
+/* miniprogram/pages/agenda/agenda.wxss */
+
+.agenda-cell {
+  padding: 10px 15px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  font-size: 13px;
+}
+
+.blue {
+  color: blue;
+}
+
+.agenda-cell:first-child:before {
+  display: none;
+}
+
+.agenda-cell:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1rpx solid #d9d9d9;
+  color: #d9d9d9;
+  left: 15px;
+}
+
+.detail {
+  font-weight: normal;
+  color: #666666;
+}
+
+.color-box {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000000;
+  
+}
+
+.green {
+  background-color: greenyellow;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.time-span {
+  margin-right: 16px;
+}

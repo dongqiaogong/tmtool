@@ -1,0 +1,16 @@
+<view class="page">
+	<view class="page__hd">
+		<view class="page__title">Set Profile</view>
+	</view>
+	<view class="page__bd">
+		<view class="page-section">
+			<view class="weui-cells__title">Real Name</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<input class="weui-input" bindinput="bindKeyInput" placeholder="Type your name" />
+				</view>
+			</view>
+		</view>
+    <button class="weui-btn" type="primary" bindtap="save">Save</button>
+	</view>
+</view>

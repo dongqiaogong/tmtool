@@ -1,0 +1,6 @@
+<view class="page__hd">
+	<view class="page__title">{{meetingInfo.type}} Meeting (#{{meetingInfo.number}})</view>
+	<view class="page__desc">Theme: {{meetingInfo.theme}}</view>
+	<view class="page__desc">{{meetingInfo.date}} {{meetingInfo.startTime}}-{{meetingInfo.endTime}}</view>
+	<view class="page__desc">{{meetingInfo.venue}}</view>
+</view>

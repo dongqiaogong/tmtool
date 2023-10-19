@@ -1,0 +1,71 @@
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+
+			<view class="weui-cells__title">Table Topic Speaker List</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell" wx:for="{{list}}" wx:key="index">
+					<view class="weui-cell__bd">{{item.owner}}</view>
+					<view class="weui-cell__ft">
+						<button class="weui-btn mini-btn" type="primary" size="mini" data-speaker='{{item}}' bindtap='deleteSpeaker'>Delete</button>
+					</view>
+				</view>
+			</view>
+
+			<view wx:if="{{!showAddInput}}" class="weui-cell weui-cell_link">
+				<view class="weui-cell__bd" bindtap="showAddInput">Add Speaker</view>
+			</view>
+			<view wx:if="{{showAddInput}}">
+				<view class="weui-cells__title">Select a Speaker</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell weui-cell_select select-speaker">
+						<view class="weui-cell__hd weui-cell__hd_in-select-after">
+							<view class="weui-label">Select</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker bindchange="bindMemberChange" value="{{memberIndex}}" range="{{members}}">
+								<view class="weui-select weui-select_in-select-after">{{members[memberIndex]}}</view>
+							</picker>
+						</view>
+					</view>
+					<view class="weui-cell weui-cell_input">
+						<button class="weui-btn mini-btn add-speaker-btn btn-right" type="primary" size="mini" bindtap="add">Add</button>
+					</view>
+					<!-- <view wx:if="{{showAddInput}}" class="weui-cell weui-cell_select">
+					
+				</view> -->
+				</view>
+
+				<view class="weui-cells__title">Search a Speaker</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell weui-cell_input">
+						<input class="weui-input" bindinput="bindKeywordInput" placeholder="Search by name" value="{{keyword}}" />
+						<button class="weui-btn mini-btn btn-right" type="primary" size="mini" bindtap="searchMembers">Search</button>
+					</view>
+					<view wx:if="{{showSearchResult}}" class="search-result-title">Search Result:</view>
+					<view class="weui-cell" wx:for="{{searchResultList}}" wx:key="index">
+						<view class="weui-cell__bd">{{item.realname}}</view>
+						<view class="weui-cell__ft">
+							<button class="weui-btn mini-btn btn-right" type="primary" size="mini" data-speaker='{{item}}' bindtap='addSpeakerFromSearchResultList'>Add</button>
+						</view>
+					</view>
+					<view wx:if="{{searchResultList.length === 0}}" class="search-result-title">No Items for "{{keyword}}"</view>
+				</view>
+
+				<view class="weui-cells__title">Add a guest as speaker</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell weui-cell_input">
+						<input class="weui-input" bindinput="bindGuestNameInput" placeholder="Guest name" value="{{guestName}}" />
+						<button class="weui-btn mini-btn btn-right" type="primary" size="mini" bindtap="addGuest">Add</button>
+					</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</view>

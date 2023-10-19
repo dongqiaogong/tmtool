@@ -1,0 +1,84 @@
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+
+			<view class="weui-cells__title">Best Prepared Speaker</view>
+			<view class="weui-cells weui-cells_after-title">
+				<radio-group data-dataset="preparedSpeakers" bindchange="radioChange">
+					<label class="weui-cell weui-check__label" wx:for="{{preparedSpeakers}}" wx:key="value">
+						<radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+						<view class="weui-cell__bd">{{item.name}}</view>
+						<view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+							<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+						</view>
+					</label>
+				</radio-group>
+			</view>
+
+      <view class="weui-cells__title">Best Table Topic Speaker</view>
+			<view class="weui-cells weui-cells_after-title">
+				<radio-group data-dataset="tableTopicSpeakers" bindchange="radioChange">
+					<label class="weui-cell weui-check__label" wx:for="{{tableTopicSpeakers}}" wx:key="value">
+						<radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+						<view class="weui-cell__bd">{{item.name}}</view>
+						<view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+							<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+						</view>
+					</label>
+				</radio-group>
+			</view>
+
+      <view class="weui-cells__title">Best Evaluator</view>
+			<view class="weui-cells weui-cells_after-title">
+				<radio-group data-dataset="evaluators" bindchange="radioChange">
+					<label class="weui-cell weui-check__label" wx:for="{{evaluators}}" wx:key="value">
+						<radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+						<view class="weui-cell__bd">{{item.name}}</view>
+						<view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+							<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+						</view>
+					</label>
+				</radio-group>
+			</view>
+
+      <view class="weui-cells__title">Best Function Role</view>
+			<view class="weui-cells weui-cells_after-title">
+				<radio-group data-dataset="functionRoles" bindchange="radioChange">
+					<label class="weui-cell weui-check__label" wx:for="{{functionRoles}}" wx:key="value">
+						<radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+						<view class="weui-cell__bd">{{item.name}}</view>
+						<view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+							<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+						</view>
+					</label>
+				</radio-group>
+			</view>
+
+      <view class="weui-cells__title">Most Improved</view>
+			<view class="weui-cells weui-cells_after-title">
+				<radio-group data-dataset="all" bindchange="radioChange">
+					<label class="weui-cell weui-check__label" wx:for="{{all}}" wx:key="value">
+						<radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+						<view class="weui-cell__bd">{{item.name}}</view>
+						<view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+							<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+						</view>
+					</label>
+				</radio-group>
+			</view>
+
+      <button wx:if="{{!hasVoted}}" class="weui-btn" type="primary" bindtap="submit">Submit</button>
+
+		</view>
+	</view>
+</view>

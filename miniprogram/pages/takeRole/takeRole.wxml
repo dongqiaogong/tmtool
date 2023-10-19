@@ -1,0 +1,23 @@
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+			<view class="weui-cells__title">Take roles in the meeting</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell" wx:for="{{roles}}" wx:key="index">
+					<view class="weui-cell__bd">{{item.roleName}}</view>
+					<view class="role-owner-wrapper">
+						<span class="role-owner">{{item.roleOwner}}</span>
+						<button wx:if="{{item.roleOwner == undefined || item.roleOwner == ''}}" class="weui-btn mini-btn" type="primary" size="mini" data-role='{{item}}' bindtap='takeRole'>Take</button>
+						<button wx:if="{{item.roleOwner && item.ownerOpenId == myOpenId}}" class="weui-btn mini-btn" type="primary" size="mini" data-role='{{item}}' bindtap='cancelRole'>Cancel</button>
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</view>

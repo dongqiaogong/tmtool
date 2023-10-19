@@ -1,0 +1,55 @@
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+
+			<view class="weui-form-preview" wx:for="{{speeches}}" wx:key="index">
+				<view class="weui-form-preview__hd">
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Owner</view>
+						<view class="weui-form-preview__value_in-hd">{{item.owner}}</view>
+					</view>
+				</view>
+				<view class="weui-form-preview__bd">
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Title</view>
+						<view class="weui-form-preview__value">{{item.title}}</view>
+					</view>
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Manual</view>
+						<view class="weui-form-preview__value">{{item.manual}}</view>
+					</view>
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Duration</view>
+						<view class="weui-form-preview__value">{{item.green}}-{{item.red}}mins</view>
+					</view>
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Objective</view>
+						<view class="weui-form-preview__value">{{item.objective}}</view>
+					</view>
+					<view class="weui-form-preview__item">
+						<view class="weui-form-preview__label">Evaluator</view>
+						<view class="weui-form-preview__value">{{item.evaluator}}</view>
+					</view>
+				</view>
+				<view wx:if="{{!item.evaluatorOpenId && item.ownerOpenId !== myOpenId}}" class="weui-form-preview__ft">
+					<navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-speech='{{item}}' bindtap='takeEvaluator'>Take Evaluator</navigator>
+				</view>
+				<view wx:if="{{item.evaluatorOpenId == myOpenId}}" class="weui-form-preview__ft">
+					<navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-speech='{{item}}' bindtap='cancelEvaluator'>Cancel Take Evaluator</navigator>
+				</view>
+				<view wx:if="{{item.ownerOpenId == myOpenId}}" class="weui-form-preview__ft">
+					<navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-speech='{{item}}' bindtap='showDetail'>Modify</navigator>
+					<navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active"  data-speech='{{item}}' bindtap='cancelSpeech'>Delete</navigator>
+				</view>
+			</view>
+
+			<button wx:if="{{canEnrollment}}" class="weui-btn" type="primary" bindtap='enrollment'>Enrollment</button>
+
+		</view>
+	</view>
+</view>

@@ -1,0 +1,14 @@
+/* miniprogram/pages/meetingList/meetingList.wxss */
+.page__title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-content: left;
+}
+.edit-icon {
+  width: 20px;
+  height: 20px;
+}
+/* .club-logo {
+  height: auto !important;
+} */

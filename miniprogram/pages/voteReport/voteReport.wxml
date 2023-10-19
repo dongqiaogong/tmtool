@@ -1,0 +1,22 @@
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+			<view wx:for="{{bestes}}" wx:key="index">
+				<view class="weui-cells__title">{{item.type}}</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell">
+						<view class="weui-cell__bd" wx:for="{{item.best}}" wx:key="index">{{item}}</view>
+						<view class="weui-cell__ft">{{item.count}}/{{item.totalForType}}</view>
+					</view>
+				</view>
+			</view>
+
+
+		</view>
+	</view>
+</view>

@@ -1,0 +1,57 @@
+<view class="page">
+	<pageTitle meetingId="{{meetingId}}" />
+	<view class="page__bd">
+
+		<view class="page-section">
+			<view class="weui-cells__title">Title</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<input id="title" class="weui-input" value='{{title}}' bindinput='bindformInput' disabled="{{disabled}}"/>
+				</view>
+			</view>
+		</view>
+
+		<view class="page-section">
+			<view class="weui-cells__title">Manual</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<input id="manual" class="weui-input" value="{{manual}}" bindinput='bindformInput' disabled="{{disabled}}" placeholder="e.g. Pathway Level2-1"/>
+				</view>
+			</view>
+		</view>
+
+		<view class="page-section">
+			<view class="weui-cells__title">Objective</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell">
+					<view class="weui-cell__bd">
+						<textarea id="objective" class="weui-textarea" value="{{objective}}" bindinput='bindformInput' style="height: 3.3em" disabled="{{disabled}}" maxlength="-1"/>
+						<!-- <view class="weui-textarea-counter">0/400</view> -->
+          </view>
+        </view>
+      </view>
+		</view>
+
+    <view class="page-section">
+      <view class="weui-cells__title">Minimum Duration</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input id="green" class="weui-input" type="number" value="{{green}}" bindinput='bindformInput' disabled="{{disabled}}"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="weui-cells__title">Maximum Duration</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input id="red" class="weui-input" type="number" value="{{red}}" bindinput='bindformInput' disabled="{{disabled}}"/>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button wx:if="{{!speechId}}" class="weui-btn" type="primary" bindtap="enrollment">Submit</button>
+			<button wx:if="{{speechId && ownerOpenId == myOpenId}}" class="weui-btn" type="primary" bindtap="update">Update</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+/* miniprogram/pages/menu/menu.wxss */
+.weui-grid__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.disabled{
+  opacity: 0.4;
+}

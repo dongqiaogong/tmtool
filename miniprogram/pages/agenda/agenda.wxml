@@ -1,0 +1,35 @@
+<!--miniprogram/pages/agenda/agenda.wxml-->
+<view class="page">
+	<view wx:if="{{loading}}" class="weui-loadmore">
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore__tips">正在加载</view>
+	</view>
+	<view wx:if="{{!loading}}">
+		<pageTitle meetingId="{{meetingId}}" />
+		<view class="page__bd">
+			<view class="weui-cells__title">Agenda</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="agenda-cell" wx:for="{{items}}" wx:key="index">
+					<view class="time">{{item.time}}</view>
+					<view class="detail">
+						<view class="event">{{item.event}}</view>
+						<view class="owner">{{item.role}}{{item.owner ? ' - ' : ''}}{{item.owner}}</view>
+						<view class="time-rule">
+							<view wx:if="{{item.green !== undefined}}" class="color-box green"></view> {{item.green}}
+							<span wx:if="{{item.green !== undefined}}" class="time-span">min<span wx:if="{{item.green > 1}}">s</span>
+							</span>
+
+							<view wx:if="{{item.yellow !== undefined}}" class="color-box yellow"></view> {{item.yellow}}
+							<span wx:if="{{item.yellow !== undefined}}" class="time-span">min<span wx:if="{{item.yellow > 1}}">s</span>
+							</span>
+							<view wx:if="{{item.red !== undefined}}" class="color-box red"></view> {{item.red}}
+							<span wx:if="{{item.red !== undefined}}" class="time-span">min<span wx:if="{{item.red > 1}}">s</span>
+							</span>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>

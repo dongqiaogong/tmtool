@@ -1,0 +1,17 @@
+/* miniprogram/pages/tableTopic/tableTopic.wxss */
+.add-speaker-btn, .btn-right {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+.search-result-title {
+  margin-top:.77em;
+  margin-bottom:.3em;
+  padding-left:15px;
+  padding-right:15px;
+  color:#999;
+  font-size:14px
+}
+
+.btn-right {
+  margin-right: 0;
+}
